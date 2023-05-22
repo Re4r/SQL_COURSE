@@ -9,11 +9,18 @@ FROM employees;
 SELECT * FROM job_history;
 
 SELECT employee_id,
-start_date, end_date, 
-start_date+7, 
-end_date - start_date 
+start_date, 
+end_date, 
+start_date+7 plus_week, 
+end_date - start_date count_of_days 
 FROM job_history;
 
-SELECT employee_id ,first_name||' '||last_name||' '||salary full_name_salary 
+SELECT employee_id, 
+first_name||' '||last_name||' '||salary full_name_salary 
+FROM employees;
+
+SELECT employee_id id,
+first_name fn, 
+last_name ln 
 FROM employees;
 
