@@ -1,0 +1,4 @@
+SELECT * FROM dual;
+
+SELECT 'AAA'||'BBB'||(100*900) as example_raw 
+FROM dual;

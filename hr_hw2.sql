@@ -29,6 +29,10 @@ max_salary AS max,
 (max_salary*2)-200 AS new_salary
 FROM jobs;
 
+SELECT q'<Peter's dog is very clever>'
+FROM dual;
+
+SELECT 100*365*24*60 FROM dual;
 
 
 
