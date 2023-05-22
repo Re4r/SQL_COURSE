@@ -32,3 +32,7 @@ SELECT *
 FROM job_history 
 WHERE job_id = 'ST_CLERK';
 
+
+
+
+
