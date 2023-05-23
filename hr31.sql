@@ -39,6 +39,13 @@ salary
 FROM employees
 WHERE salary > 10000;
 
+SELECT * FROM employees WHERE first_name > 'Steven';
+
+SELECT first_name, last_name, salary
+FROM employees 
+WHERE salary BETWEEN 4000 AND 10000;
+
+
 
 
 
