@@ -19,7 +19,7 @@ WHERE last_name LIKE 'D%' OR last_name LIKE '%d';
 
 SELECT * 
 FROM employees 
-WHERE NOT commission_pct IS NULL;
+WHERE commission_pct IS NOT NULL;
 
 SELECT * 
 FROM employees 
@@ -32,4 +32,12 @@ WHERE manager_id NOT IN (100);
 SELECT * 
 FROM employees 
 WHERE phone_number NOT LIKE '%6';
+
+SELECT * 
+FROM employees 
+WHERE commission_pct IS NOT NULL AND last_name LIKE '%a';
+
+SELECT * 
+FROM employees 
+WHERE first_name LIKE '__n%' AND commission_pct IS NULL;
 
