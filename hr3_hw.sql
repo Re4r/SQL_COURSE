@@ -60,6 +60,21 @@ BETWEEN 3000 AND 7000
 AND commission_pct IS NULL 
 AND job_id IN ('PU_CLERK', 'ST_MAN', 'ST_CLERK');
 
+SELECT * 
+FROM employees 
+WHERE first_name LIKE '%';
+
+SELECT
+employee_id,
+job_id,
+first_name,
+salary
+FROM employees
+WHERE employee_id >= 120 AND job_id NOT IN ('SH_CLERK')
+ORDER BY job_id, first_name DESC;
+
+
+
 
 
 
