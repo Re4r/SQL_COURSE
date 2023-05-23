@@ -32,6 +32,13 @@ SELECT *
 FROM job_history 
 WHERE job_id = 'ST_CLERK';
 
+SELECT
+first_name,
+last_name,
+salary
+FROM employees
+WHERE salary > 10000;
+
 
 
 
