@@ -22,7 +22,7 @@ WHERE department_id IN 20 OR department_id IN 30;
 
 SELECT first_name 
 FROM employees
-WHERE first_name LIKE '_a%' AND first_name LIKE '%a';
+WHERE first_name LIKE '_a%a';
 
 SELECT
 first_name,
@@ -39,7 +39,7 @@ ORDER BY email;
 
 SELECT first_name 
 FROM employees 
-WHERE first_name LIKE '%nn';
+WHERE first_name LIKE '%n%n';
 
 SELECT 
 first_name, 
@@ -62,7 +62,7 @@ AND job_id IN ('PU_CLERK', 'ST_MAN', 'ST_CLERK');
 
 SELECT * 
 FROM employees 
-WHERE first_name LIKE '%';
+WHERE first_name LIKE '%\%%' ESCAPE '\';
 
 SELECT
 employee_id,
