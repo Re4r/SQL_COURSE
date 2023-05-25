@@ -34,6 +34,26 @@ SELECT
 CONCAT('AAA ', CONCAT('BBB ', CONCAT('CCC ', 'DDD '))) AS example
 FROM dual;
 
+SELECT 
+first_name || ' ' || last_name AS full_name,
+LENGTH(CONCAT(first_name, last_name)) AS fn_length
+FROM employees
+WHERE LENGTH(CONCAT(first_name, last_name)) BETWEEN 10 AND 15
+ORDER BY LENGTH(CONCAT(first_name, last_name)) DESC;
+
+SELECT
+country_name,
+LENGTH(country_name) AS c_length
+FROM countries
+WHERE LENGTH(country_name) > 8
+ORDER BY LENGTH(country_name);
+
+SELECT
+first_name,
+LPAD(first_name, LENGTH(first_name)+3, 'Dr.') AS lpad,
+RPAD(first_name, LENGTH(first_name)+4, '_bot') AS rpad
+FROM employees;
+
 
 
 
