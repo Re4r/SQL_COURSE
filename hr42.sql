@@ -65,6 +65,18 @@ TRIM(BOTH 5 FROM phone_number) AS t_both
 FROM employees
 ORDER BY LENGTH(phone_number);
 
+SELECT
+TRIM(BOTH ' ' FROM '      OK      ') AS ok
+FROM dual;
+
+SELECT * 
+FROM employees 
+WHERE INSTR(phone_number, 4) = LENGTH(phone_number) AND salary > 5000
+ORDER BY employee_id;
+
+SELECT * FROM jobs WHERE INSTR(job_title, 'cc', 2) = 2;
+
+
 
 
 
