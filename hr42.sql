@@ -74,7 +74,24 @@ FROM employees
 WHERE INSTR(phone_number, 4) = LENGTH(phone_number) AND salary > 5000
 ORDER BY employee_id;
 
-SELECT * FROM jobs WHERE INSTR(job_title, 'cc', 2) = 2;
+SELECT * FROM jobs WHERE INSTR(job_title, 'cc') = 2;
+
+SELECT
+job_title,
+INSTR(job_title, 'e', 3, 2) AS instr
+FROM jobs
+WHERE INSTR(job_title, 'e', 3, 2) != 0
+ORDER BY INSTR(job_title, 'e', 3, 2);
+
+SELECT 
+job_title,
+TRIM(TRAILING ' ' FROM SUBSTR(job_title, 2, 5)) AS sub
+FROM jobs
+WHERE SUBSTR(job_title, 2, 5) LIKE '%u%'
+ORDER BY SUBSTR(job_title, 2, 5);
+
+
+
 
 
 
