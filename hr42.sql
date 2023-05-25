@@ -50,9 +50,24 @@ ORDER BY LENGTH(country_name);
 
 SELECT
 first_name,
-LPAD(first_name, LENGTH(first_name)+3, 'Dr.') AS lpad,
-RPAD(first_name, LENGTH(first_name)+4, '_bot') AS rpad
-FROM employees;
+LPAD(first_name, (LENGTH(first_name) + LENGTH(SYSDATE)), SYSDATE) AS lpad,
+RPAD(first_name, LENGTH(first_name)+4, '_bot') AS rpad,
+LENGTH(LPAD(first_name, (LENGTH(first_name) + LENGTH(SYSDATE)), SYSDATE)) AS length_lpad
+FROM employees
+ORDER BY 
+LENGTH(LPAD(first_name, (LENGTH(first_name) + LENGTH(SYSDATE)), SYSDATE));
+
+SELECT
+phone_number,
+TRIM(TRAILING 4 FROM phone_number) AS t_trailing,
+TRIM(LEADING 6 FROM phone_number) AS t_leading,
+TRIM(BOTH 5 FROM phone_number) AS t_both
+FROM employees
+ORDER BY LENGTH(phone_number);
+
+
+
+
 
 
 
