@@ -85,10 +85,27 @@ ORDER BY INSTR(job_title, 'e', 3, 2);
 
 SELECT 
 job_title,
-TRIM(TRAILING ' ' FROM SUBSTR(job_title, 2, 5)) AS sub
+TRIM(TRAILING ' ' FROM SUBSTR(job_title, -4, 4)) AS sub
 FROM jobs
-WHERE SUBSTR(job_title, 2, 5) LIKE '%u%'
-ORDER BY SUBSTR(job_title, 2, 5);
+WHERE SUBSTR(job_title, -4, 4) LIKE '%a%'
+ORDER BY SUBSTR(job_title, -4, 4);
+
+SELECT
+job_title,
+REPLACE(job_title, 'a', '$') AS replaced,
+INSTR(REPLACE(job_title, 'a', '$'), '$', 1, 2) AS pos
+FROM jobs
+WHERE INSTR(REPLACE(job_title, 'a', '$'), '$', 1, 2) != 0
+ORDER BY INSTR(REPLACE(job_title, 'a', '$'), '$', 1, 2) DESC;
+
+SELECT 
+phone_number,
+REPLACE(phone_number, '011.44', '$$$.##')
+FROM employees
+WHERE REPLACE(phone_number, '011.44', '$$$.##') LIKE '%$%'
+
+
+
 
 
 
