@@ -15,5 +15,22 @@ employee_id,
 TRUNC(MONTHS_BETWEEN(end_date, start_date)) AS m_b,
 TRUNC(MONTHS_BETWEEN(end_date, start_date)) * 31 AS m_b_d,
 TRUNC(MONTHS_BETWEEN(end_date, start_date)) * 31 * 24 AS m_b_d_h
+FROM job_history;
+
+SELECT 
+employee_id,
+start_date,
+end_date
 FROM job_history
+WHERE MONTHS_BETWEEN(end_date, start_date) >= 60;
+
+SELECT 
+hire_date,
+ROUND(hire_date, 'YYYY')
+FROM employees;
+
+
+
+
+
 
