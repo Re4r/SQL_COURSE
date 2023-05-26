@@ -24,9 +24,26 @@ SELECT
 FROM employees
 WHERE first_name LIKE '%m' AND LENGTH(first_name) > 5;
 
+SELECT NEXT_DAY(SYSDATE, 5) FROM dual;
 
+SELECT
+hire_date,
+TRUNC(MONTHS_BETWEEN(SYSDATE, hire_date)) AS t_months
+FROM employees
+WHERE TRUNC(MONTHS_BETWEEN(SYSDATE, hire_date)) > 150;
 
+SELECT 
+phone_number,
+REPLACE(phone_number, '.', '-') AS replaced
+FROM employees;
 
-
+SELECT
+first_name,
+email,
+job_id,
+UPPER(first_name) AS u,
+LOWER(email) AS l,
+INITCAP(job_id) as ic
+FROM employees;
 
 
