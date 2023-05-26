@@ -19,5 +19,14 @@ SUBSTR(phone_number, 1, 3) AS s_s
 FROM employees
 WHERE LENGTH(phone_number) = 12;
 
+SELECT 
+*
+FROM employees
+WHERE first_name LIKE '%m' AND LENGTH(first_name) > 5;
+
+
+
+
+
 
 
