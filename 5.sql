@@ -51,13 +51,30 @@ hire_date
 FROM employees
 WHERE TO_CHAR(hire_date, 'fmMonth') = 'August';
 
-SELECT 
+SELECT DISTINCT
 hire_date,
 TO_CHAR(hire_date, 'D') AS dow1,
 TO_CHAR(hire_date, 'DD') AS dow2,
 TO_CHAR(hire_date, 'DDD') AS dow3,
-TO_CHAR(hire_date, 'DY') AS dow4
+TO_CHAR(hire_date, 'DY') AS dow4,
+TO_CHAR(hire_date, 'Day') AS dow5,
+TO_CHAR(hire_date, 'W') AS dow6,
+TO_CHAR(hire_date, 'WW') AS dow7,
+TO_CHAR(hire_date, 'Q') AS dow8,
+TO_CHAR(hire_date, 'CC') AS dow9,
+TO_CHAR(hire_date, 'AM') AS dow10
 FROM employees;
+
+SELECT 
+TO_CHAR(SYSDATE, 'AM') AS ex,
+TO_CHAR(SYSDATE, 'HH24') AS ex,
+TO_CHAR(SYSDATE, 'MI') AS ex,
+TO_CHAR(SYSDATE, 'SS') AS ex,
+TO_CHAR(SYSDATE, 'SSSSS') AS ex,
+TO_CHAR(SYSDATE, 'fmMONTH.YEAR') AS ex,
+TO_CHAR(SYSDATE, 'YYYYsp') AS ex
+
+FROM dual;
 
 
 
