@@ -1,0 +1,13 @@
+SELECT * FROM employees;
+
+SELECT TO_CHAR(1000000, '9,999,999') AS exmpl
+FROM dual;
+
+SELECT TO_CHAR(18.353, '99D999') AS exmpl
+FROM dual;
+
+SELECT TO_CHAR(22, '099.999') AS exmpl
+FROM dual;
+
+SELECT TO_CHAR() AS exmpl
+FROM dual;
