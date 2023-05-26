@@ -46,4 +46,42 @@ LOWER(email) AS l,
 INITCAP(job_id) as ic
 FROM employees;
 
+SELECT 
+CONCAT(first_name, salary)
+FROM employees;
+
+SELECT 
+hire_date,
+ROUND(hire_date, 'YYYY'),
+ROUND(hire_date, 'DD')
+FROM employees;
+
+SELECT
+RPAD(first_name, 10, '$'),
+LPAD(last_name, 15, '!')
+FROM employees;
+
+SELECT
+first_name,
+INSTR(first_name, 'a', 1, 2)
+FROM employees
+WHERE INSTR(first_name, 'a', 1, 2) != 0
+ORDER BY INSTR(first_name, 'a', 1, 2);
+
+SELECT REPLACE('!!!HELLO!! MY FRIEND!!!!!!!!', '!', '') FROM dual;
+
+SELECT 
+salary,
+salary * 3.14,
+TRUNC(salary * 3.14),
+TRUNC(salary * 3.14, -3)
+FROM employees;
+
+SELECT
+hire_date,
+ADD_MONTHS(hire_date, 6),
+LAST_DAY(hire_date)
+FROM employees;
+
+
 
