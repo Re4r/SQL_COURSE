@@ -30,14 +30,19 @@ FROM dual;
 DESCRIBE employees;
 
 SELECT 
-phone_number
+*
 FROM employees;
 
 SELECT 
 phone_number,
-TO_NUMBER((REPLACE(phone_number, '.', '')), '999999999999999') AS tel
+TO_NUMBER(SUBSTR((REPLACE(phone_number, '.', '')), 4), '9999999') AS tel
 FROM employees
-WHERE LENGTH(REPLACE(phone_number, '.', '')) = 15;
+WHERE 
+LENGTH(SUBSTR((REPLACE(phone_number, '.', '')), 4)) = 7
+ORDER BY 
+TO_NUMBER(SUBSTR((REPLACE(phone_number, '.', '')), 4), '9999999') DESC;
+
+
 
 
 
