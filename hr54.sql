@@ -20,12 +20,27 @@ FROM employees;
 
 SELECT 
 TO_CHAR((TO_DATE('15$2023$12$23$32$14', 'DD$YYYY$MM$HH24$MI$SS')), 
-'DD-MON-YYYY / HH24:MI:SS') AS test
+'DD-MON-YYYY / HH24:MI:SS / Month / Year / DDD') AS test
 FROM dual;
 
 SELECT
 TO_DATE('15$2023$12$23$32$14', 'DD/YYYY/MM/HH24/MI/SS') AS r_date
 FROM dual;
+
+DESCRIBE employees;
+
+SELECT 
+phone_number
+FROM employees;
+
+SELECT 
+phone_number,
+TO_NUMBER((REPLACE(phone_number, '.', '')), '999999999999999') AS tel
+FROM employees
+WHERE LENGTH(REPLACE(phone_number, '.', '')) = 15;
+
+
+
 
 
 
