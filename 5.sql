@@ -73,8 +73,9 @@ TO_CHAR(SYSDATE, 'SS') AS ex,
 TO_CHAR(SYSDATE, 'SSSSS') AS ex,
 TO_CHAR(SYSDATE, 'fmMONTH.YEAR') AS ex,
 TO_CHAR(SYSDATE, 'YYYYsp') AS ex
-
 FROM dual;
+
+
 
 
 
