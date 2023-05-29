@@ -53,6 +53,16 @@ NVL2(NULLIF((UPPER(SUBSTR(first_name, 1, 1) || last_name)),
 FROM employees
 ORDER BY equal DESC;
 
+SELECT
+commission_pct,
+manager_id,
+department_id,
+COALESCE(commission_pct, manager_id, department_id) AS test
+FROM employees;
+
+
+
+
 
 
 
