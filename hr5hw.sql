@@ -72,6 +72,13 @@ TO_NUMBER(TO_CHAR(SYSDATE, 'MM')) + 1 AS result5,
 TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY')) + 1 AS result6
 FROM dual;
 
+SELECT 
+first_name,
+salary,
+TO_NUMBER('$12,345.55', '$99,999.99') AS result1,
+salary + TO_NUMBER('$12,345.55', '$99,999.99') AS result2
+FROM employees;
+
 
 
 
