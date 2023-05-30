@@ -42,6 +42,12 @@ TO_CHAR(hire_date, 'YYYY') AS year
 FROM employees
 WHERE TO_NUMBER(TO_CHAR(hire_date, 'YYYY')) = 2008;
 
+SELECT 
+TO_CHAR(SYSDATE + 1, '"Tomorrow is first day of "Month')
+FROM dual;
+
+
+
 
 
 
