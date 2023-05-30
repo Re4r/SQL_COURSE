@@ -33,6 +33,16 @@ TRUNC(hire_date, 'MM') AS result
 FROM employees
 WHERE hire_date = TRUNC(hire_date, 'MM');
 
+SELECT 
+employee_id,
+first_name,
+last_name,
+hire_date,
+TO_CHAR(hire_date, 'YYYY') AS year
+FROM employees
+WHERE TO_NUMBER(TO_CHAR(hire_date, 'YYYY')) = 2008;
+
+
 
 
 
