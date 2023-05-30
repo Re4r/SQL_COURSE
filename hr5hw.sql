@@ -52,7 +52,15 @@ hire_date,
 TO_CHAR(hire_date, 'fmDDth" of "Month, YYYY') AS result
 FROM employees;
 
-
+SELECT 
+employee_id AS id,
+first_name,
+salary,
+(salary / 100) * 20 AS percent,
+salary + ((salary / 100) * 20) AS result,
+TRIM(TO_CHAR(salary + ((salary / 100) * 20), '$99,999.99')) AS result2
+FROM employees
+ORDER BY result DESC;
 
 
 
