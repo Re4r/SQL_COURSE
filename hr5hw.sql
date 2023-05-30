@@ -107,6 +107,15 @@ END AS result
 FROM employees
 ORDER BY result;
 
+SELECT 
+first_name,
+commission_pct,
+NVL2(commission_pct, 'Yes', 'No') AS result
+FROM employees
+ORDER BY result DESC;
+
+
+
 
 
 
