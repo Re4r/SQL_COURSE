@@ -97,6 +97,16 @@ TO_CHAR(NVL(salary + (salary * commission_pct), salary), 'fm$99,999.00') AS resu
 FROM employees
 ORDER BY commission_pct;
 
+SELECT 
+first_name,
+last_name,
+CASE
+WHEN LENGTH(first_name) != LENGTH(last_name) THEN 'different length'
+ELSE 'same length'
+END AS result
+FROM employees
+ORDER BY result;
+
 
 
 
