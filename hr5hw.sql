@@ -46,6 +46,12 @@ SELECT
 TO_CHAR(SYSDATE + 1, '"Tomorrow is first day of "Month')
 FROM dual;
 
+SELECT 
+first_name,
+hire_date,
+TO_CHAR(hire_date, 'fmDDth" of "Month, YYYY') AS result
+FROM employees;
+
 
 
 
