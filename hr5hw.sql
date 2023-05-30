@@ -79,6 +79,14 @@ TO_NUMBER('$12,345.55', '$99,999.99') AS result1,
 salary + TO_NUMBER('$12,345.55', '$99,999.99') AS result2
 FROM employees;
 
+SELECT 
+first_name,
+hire_date,
+TO_DATE('SEP, 18:45:00 18 2009', 'MON, HH24:MI:SS DD YYYY') AS result1,
+ROUND(MONTHS_BETWEEN(TO_DATE('SEP, 18:45:00 18 2009', 
+'MON, HH24:MI:SS DD YYYY'), hire_date)) AS result2
+FROM employees;
+
 
 
 
