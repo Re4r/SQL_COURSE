@@ -87,7 +87,15 @@ ROUND(MONTHS_BETWEEN(TO_DATE('SEP, 18:45:00 18 2009',
 'MON, HH24:MI:SS DD YYYY'), hire_date)) AS result2
 FROM employees;
 
-
+SELECT 
+first_name,
+salary,
+commission_pct,
+NVL((salary * commission_pct), salary) AS result1,
+NVL(salary + (salary * commission_pct), salary) AS result2,
+TO_CHAR(NVL(salary + (salary * commission_pct), salary), 'fm$99,999.00') AS result3
+FROM employees
+ORDER BY commission_pct;
 
 
 
