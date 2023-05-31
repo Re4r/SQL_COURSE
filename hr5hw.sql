@@ -143,7 +143,18 @@ DECODE(region_id, 4, ' 4 - Africa') AS result4
 FROM countries
 ORDER BY region_id;
 
-
+SELECT 
+country_id,
+country_name,
+region_id,
+CASE region_id
+WHEN 1 THEN '1 - Europe'
+WHEN 2 THEN '2 - America'
+WHEN 3 THEN '3 - Asia'
+WHEN 4 THEN '4 - Africa'
+END AS result
+FROM countries
+ORDER BY result;
 
 
 
