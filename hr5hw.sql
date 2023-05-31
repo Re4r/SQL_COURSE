@@ -10,7 +10,7 @@ WHERE first_name LIKE '%a%a%';
 
 SELECT 
 department_name,
-SUBSTR(department_name, 1, INSTR(department_name, ' ')) AS result
+SUBSTR(department_name, 1, INSTR(department_name, ' ') - 1) AS result
 FROM departments
 WHERE INSTR(department_name, ' ') != 0;
 
@@ -43,24 +43,23 @@ FROM employees
 WHERE TO_NUMBER(TO_CHAR(hire_date, 'YYYY')) = 2008;
 
 SELECT 
-TO_CHAR(SYSDATE + 1, '"Tomorrow is first day of "Month')
+TO_CHAR(SYSDATE + 1, 'fm"Tomorrow is" Ddspth "day of "Month') AS result
 FROM dual;
 
 SELECT 
 first_name,
 hire_date,
-TO_CHAR(hire_date, 'fmDDth" of "Month, YYYY') AS result
+TO_CHAR(hire_date, 'fmddth" of "Month, YYYY') AS result
 FROM employees;
 
 SELECT 
 employee_id AS id,
 first_name,
 salary,
-(salary / 100) * 20 AS percent,
-salary + ((salary / 100) * 20) AS result,
-TRIM(TO_CHAR(salary + ((salary / 100) * 20), '$99,999.99')) AS result2
+salary + salary * 0.20 AS percent,
+TRIM(TO_CHAR(salary + salary * 0.20, '$99,999.99')) AS result
 FROM employees
-ORDER BY result DESC;
+ORDER BY percent DESC;
 
 SELECT
 TO_CHAR(SYSDATE, 'DD-MON-YYYY / HH24:MI:SS') AS source,
@@ -85,7 +84,8 @@ hire_date,
 TO_DATE('SEP, 18:45:00 18 2009', 'MON, HH24:MI:SS DD YYYY') AS result1,
 ROUND(MONTHS_BETWEEN(TO_DATE('SEP, 18:45:00 18 2009', 
 'MON, HH24:MI:SS DD YYYY'), hire_date)) AS result2
-FROM employees;
+FROM employees
+ORDER BY result2;
 
 SELECT 
 first_name,
@@ -104,6 +104,14 @@ CASE
 WHEN LENGTH(first_name) != LENGTH(last_name) THEN 'different length'
 ELSE 'same length'
 END AS result
+FROM employees
+ORDER BY result;
+
+SELECT 
+first_name,
+last_name,
+NVL2(NULLIF(LENGTH(first_name), LENGTH(last_name)), 
+'different length', 'same length') AS result
 FROM employees
 ORDER BY result;
 
@@ -136,10 +144,11 @@ ORDER BY salary;
 SELECT 
 country_name,
 region_id,
-DECODE(region_id, 1, ' 1 - Europe') AS result1,
-DECODE(region_id, 2, ' 2 - America') AS result2,
-DECODE(region_id, 3, ' 3 - Asia') AS result3,
-DECODE(region_id, 4, ' 4 - Africa') AS result4
+DECODE(region_id, 
+1, 'Europe',
+2, 'America',
+3, 'Asia',
+4, 'Africa') AS result1
 FROM countries
 ORDER BY region_id;
 
@@ -148,10 +157,10 @@ country_id,
 country_name,
 region_id,
 CASE region_id
-WHEN 1 THEN '1 - Europe'
-WHEN 2 THEN '2 - America'
-WHEN 3 THEN '3 - Asia'
-WHEN 4 THEN '4 - Africa'
+WHEN 1 THEN 'Europe'
+WHEN 2 THEN 'America'
+WHEN 3 THEN 'Asia'
+WHEN 4 THEN 'Africa'
 END AS result
 FROM countries
 ORDER BY result;
