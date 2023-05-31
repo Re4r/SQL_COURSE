@@ -121,8 +121,17 @@ commission_pct,
 COALESCE(commission_pct, manager_id, salary) AS result
 FROM employees;
 
-
-
+SELECT 
+first_name,
+last_name,
+salary,
+CASE
+WHEN salary < 5000 THEN 'Low level'
+WHEN salary >= 5000 AND salary < 10000 THEN 'Normal level'
+WHEN salary >= 10000 THEN 'High level'
+END AS result
+FROM employees
+ORDER BY salary;
 
 
 
