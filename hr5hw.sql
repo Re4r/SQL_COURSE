@@ -156,6 +156,18 @@ END AS result
 FROM countries
 ORDER BY result;
 
+SELECT 
+first_name,
+salary,
+CASE
+WHEN salary < 10000 
+AND commission_pct IS NULL THEN 'BAD'
+WHEN salary BETWEEN 10000 AND 15000 
+OR commission_pct IS NOT NULL THEN 'NORMAL'
+WHEN salary > 15000 THEN 'GOOD'
+END AS result
+FROM employees
+ORDER BY result;
 
 
 
