@@ -133,6 +133,20 @@ END AS result
 FROM employees
 ORDER BY salary;
 
+SELECT 
+country_name,
+region_id,
+DECODE(region_id, 1, ' 1 - Europe') AS result1,
+DECODE(region_id, 2, ' 2 - America') AS result2,
+DECODE(region_id, 3, ' 3 - Asia') AS result3,
+DECODE(region_id, 4, ' 4 - Africa') AS result4
+FROM countries
+ORDER BY region_id;
+
+
+
+
+
 
 
 
