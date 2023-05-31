@@ -114,6 +114,24 @@ NVL2(commission_pct, 'Yes', 'No') AS result
 FROM employees
 ORDER BY result DESC;
 
+SELECT 
+first_name,
+last_name,
+commission_pct,
+COALESCE(commission_pct, manager_id, salary) AS result
+FROM employees;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
