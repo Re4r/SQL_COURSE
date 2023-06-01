@@ -57,6 +57,27 @@ FROM employees
 GROUP BY job_id
 ORDER BY emp_count DESC;
 
+SELECT 
+department_id,
+COUNT(*)
+FROM employees
+GROUP BY department_id
+HAVING COUNT(DISTINCT job_id) > 1 
+ORDER BY department_id;
+
+SELECT 
+department_id,
+job_id,
+MIN(salary),
+MAX(salary)
+FROM employees
+GROUP BY department_id, job_id
+HAVING ROUND(AVG(salary)) > 10000
+ORDER BY department_id;
+
+
+
+
 
 
 
