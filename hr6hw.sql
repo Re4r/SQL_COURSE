@@ -25,3 +25,12 @@ salary
 FROM employees
 GROUP BY department_id, salary
 ORDER BY m_count DESC;
+
+SELECT 
+TO_CHAR(hire_date, 'DDthsp'),
+COUNT(*) AS emp_quantity
+FROM employees
+GROUP BY TO_CHAR(hire_date, 'DDthsp') 
+ORDER BY emp_quantity DESC;
+
+
