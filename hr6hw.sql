@@ -75,6 +75,16 @@ GROUP BY department_id, job_id
 HAVING ROUND(AVG(salary)) > 10000
 ORDER BY department_id;
 
+SELECT 
+manager_id,
+COUNT(*),
+ROUND(AVG(salary))
+FROM employees
+WHERE commission_pct IS NULL
+GROUP BY manager_id
+HAVING ROUND(AVG(salary)) BETWEEN 6000 AND 9000
+ORDER BY manager_id;
+
 
 
 
