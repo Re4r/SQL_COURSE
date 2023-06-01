@@ -85,6 +85,10 @@ GROUP BY manager_id
 HAVING ROUND(AVG(salary)) BETWEEN 6000 AND 9000
 ORDER BY manager_id;
 
+SELECT 
+ROUND(MAX(AVG(salary)), -3)
+FROM employees
+GROUP BY department_id;
 
 
 
