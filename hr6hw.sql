@@ -33,4 +33,10 @@ FROM employees
 GROUP BY TO_CHAR(hire_date, 'DDthsp') 
 ORDER BY emp_quantity DESC;
 
-
+SELECT 
+department_id,
+COUNT(*) AS emp_count,
+SUM(salary) AS sum_salary
+FROM employees
+GROUP BY department_id
+HAVING SUM(salary) > 300000 AND COUNT(*) > 30;
