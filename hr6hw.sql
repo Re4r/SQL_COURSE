@@ -17,3 +17,11 @@ FROM employees
 GROUP BY SUBSTR(first_name,1,1)
 HAVING COUNT(*) > 1
 ORDER BY m_count DESC, flon;
+
+SELECT
+department_id,
+COUNT(*) AS m_count,
+salary
+FROM employees
+GROUP BY department_id, salary
+ORDER BY m_count DESC;
