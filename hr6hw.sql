@@ -46,7 +46,18 @@ region_id,
 COUNT(*) AS c_count,
 SUM(LENGTH(country_name)) AS sum_of_l
 FROM countries
-GROUP BY region_id;
+GROUP BY region_id
+HAVING SUM(LENGTH(country_name)) > 50;
+
+SELECT 
+job_id,
+COUNT(*) AS emp_count,
+ROUND(AVG(salary)) AS avg_salary
+FROM employees
+GROUP BY job_id
+ORDER BY emp_count DESC;
+
+
 
 
 
