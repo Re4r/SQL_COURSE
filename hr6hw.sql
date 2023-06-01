@@ -40,3 +40,27 @@ SUM(salary) AS sum_salary
 FROM employees
 GROUP BY department_id
 HAVING SUM(salary) > 300000 AND COUNT(*) > 30;
+
+SELECT 
+region_id,
+COUNT(*) AS c_count,
+SUM(LENGTH(country_name)) AS sum_of_l
+FROM countries
+GROUP BY region_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
