@@ -59,9 +59,26 @@ COUNT(*)
 FROM employees
 WHERE LENGTH(first_name || last_name) > 10
 GROUP BY job_id
-HAVING COUNT(*) > 3
+HAVING COUNT(*) > 3;
 
+SELECT 
+salary,
+COUNT(*) AS m_count
+FROM employees
+WHERE job_id IN('IT_PROG')
+GROUP BY salary
+HAVING COUNT(*) > 1
+ORDER BY m_count DESC;
 
+SELECT 
+TO_CHAR(hire_date, 'YYYY') AS m_year,
+COUNT(*),
+SUM(salary) * 12 AS year_salary,
+ROUND(AVG(salary)) AS avg_salary
+FROM employees
+GROUP BY TO_CHAR(hire_date, 'YYYY')
+HAVING ROUND(AVG(salary)) > 5000
+ORDER BY m_year;
 
 
 
