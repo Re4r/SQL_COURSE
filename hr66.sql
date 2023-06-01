@@ -53,7 +53,13 @@ FROM employees
 GROUP BY job_id, TO_CHAR(hire_date, 'YYYY')
 ORDER BY job_id ,h_year; 
 
-
+SELECT 
+job_id,
+COUNT(*)
+FROM employees
+WHERE LENGTH(first_name || last_name) > 10
+GROUP BY job_id
+HAVING COUNT(*) > 3
 
 
 
