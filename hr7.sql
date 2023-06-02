@@ -21,7 +21,7 @@ employees.last_name,
 employees.salary
 FROM employees NATURAL JOIN departments;
 
-SELECT * FROM employees ;
+SELECT * FROM employees;
 SELECT * FROM job_history;
 
 SELECT 
@@ -32,6 +32,17 @@ departments.department_name,
 departments.manager_id,
 department_id
 FROM employees JOIN departments USING(department_id);
+
+SELECT * FROM regions JOIN countries USING (region_id);
+
+SELECT
+employee_id,
+employees.first_name,
+employees.last_name,
+job_history.start_date,
+job_history.end_date,
+job_history.job_id
+FROM employees JOIN job_history USING (employee_id);
 
 
 
