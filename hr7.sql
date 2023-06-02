@@ -24,3 +24,27 @@ FROM employees NATURAL JOIN departments;
 SELECT * FROM employees ;
 SELECT * FROM job_history;
 
+SELECT 
+employees.employee_id,
+employees.first_name,
+employees.last_name,
+departments.department_name,
+departments.manager_id,
+department_id
+FROM employees JOIN departments USING(department_id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
