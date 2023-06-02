@@ -21,3 +21,6 @@ employees.last_name,
 employees.salary
 FROM employees NATURAL JOIN departments;
 
+SELECT * FROM employees ;
+SELECT * FROM job_history;
+
