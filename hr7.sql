@@ -37,12 +37,40 @@ SELECT * FROM regions JOIN countries USING (region_id);
 
 SELECT
 employee_id,
+department_id,
 employees.first_name,
 employees.last_name,
 job_history.start_date,
 job_history.end_date,
 job_history.job_id
-FROM employees JOIN job_history USING (employee_id);
+FROM employees JOIN job_history USING (employee_id, department_id);
+
+SELECT * FROM locations;
+SELECT * FROM countries;
+SELECT * FROM emp_details_view;
+
+SELECT
+country_id,
+countries.region_id,
+countries.country_name,
+locations.city,
+locations.state_province
+FROM countries NATURAL JOIN locations
+WHERE locations.state_province IS NOT NULL
+ORDER BY countries.region_id;
+
+SELECT 
+emp_details_view.employee_id,
+emp_details_view.first_name,
+emp_details_view.last_name,
+state_province,
+city,
+location_id,
+locations.street_address
+FROM emp_details_view JOIN locations USING (state_province, city, location_id)
+ORDER BY state_province;
+
+
 
 
 
