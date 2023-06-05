@@ -50,6 +50,30 @@ FROM locations
 NATURAL JOIN regions 
 NATURAL JOIN countries;
 
+SELECT * 
+FROM locations 
+JOIN countries USING (country_id)
+JOIN regions USING (region_id);
+
+SELECT * FROM departments;
+SELECT * FROM job_history;
+SELECT * FROM employees;
+
+SELECT 
+job_history.job_id,
+employees.first_name,
+employees.last_name,
+job_history.start_date,
+job_history.end_date,
+departments.department_name
+FROM employees 
+JOIN job_history 
+ON job_history.employee_id = employees.employee_id
+JOIN departments 
+ON job_history.department_id = departments.department_id;
+
+
+
 
 
 
