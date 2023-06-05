@@ -32,4 +32,17 @@ JOIN locations loc ON loc.location_id = dep.location_id
 JOIN countries c ON c.country_id = loc.country_id
 JOIN regions r ON r.region_id = c.region_id;
 
+SELECT 
+emp1.first_name,
+emp1.last_name,
+COUNT(*)
+FROM employees emp1 
+JOIN employees emp2 ON emp1.employee_id = emp2.manager_id
+GROUP BY emp1.first_name, emp1.last_name
+HAVING COUNT(*) > 6
+ORDER BY emp1.first_name;
+
+
+
+
 
