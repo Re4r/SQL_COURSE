@@ -97,6 +97,25 @@ JOIN jobs
 ON jobs.job_id = employees.job_id
 WHERE employees.salary * 2 < jobs.max_salary;
 
+SELECT 
+emp1.employee_id,
+emp1.first_name,
+emp1.last_name,
+emp1.manager_id,
+emp2.first_name man_fn,
+emp2.last_name man_ln
+FROM employees emp1
+JOIN employees emp2
+ON emp1.manager_id = emp2.employee_id;
+
+SELECT 
+emp2.first_name man_fn,
+COUNT(*)
+FROM employees emp1
+JOIN employees emp2
+ON emp1.manager_id = emp2.employee_id
+GROUP BY emp2.first_name;
+
 
 
 
