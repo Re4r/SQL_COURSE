@@ -41,4 +41,15 @@ ON employees.employee_id = departments.manager_id
 AND employees.department_id = departments.department_id
 ORDER BY departments.department_id;
 
+SELECT * FROM regions;
+SELECT * FROM locations;
+SELECT * FROM countries;
+
+SELECT * 
+FROM locations 
+NATURAL JOIN regions 
+NATURAL JOIN countries;
+
+
+
 
