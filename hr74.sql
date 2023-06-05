@@ -61,6 +61,7 @@ SELECT * FROM employees;
 
 SELECT 
 job_history.job_id,
+jobs.job_title,
 employees.first_name,
 employees.last_name,
 job_history.start_date,
@@ -70,9 +71,31 @@ FROM employees
 JOIN job_history 
 ON job_history.employee_id = employees.employee_id
 JOIN departments 
-ON job_history.department_id = departments.department_id;
+ON job_history.department_id = departments.department_id
+JOIN jobs
+ON job_history.job_id = jobs.job_id;
 
+SELECT 
+departments.department_name,
+MIN(employees.salary),
+MAX(employees.salary)
+FROM employees 
+JOIN departments 
+ON employees.department_id = departments.department_id
+GROUP BY departments.department_name
+ORDER BY departments.department_name DESC;
 
+SELECT 
+employees.first_name,
+jobs.job_id,
+jobs.job_title,
+employees.salary,
+jobs.min_salary,
+jobs.max_salary
+FROM employees 
+JOIN jobs 
+ON jobs.job_id = employees.job_id
+WHERE employees.salary * 2 < jobs.max_salary;
 
 
 
