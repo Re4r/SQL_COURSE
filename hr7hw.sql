@@ -42,7 +42,12 @@ GROUP BY emp1.first_name, emp1.last_name
 HAVING COUNT(*) > 6
 ORDER BY emp1.first_name;
 
-
+SELECT 
+departments.department_name,
+COUNT(*)
+FROM departments JOIN employees USING (department_id)
+GROUP BY departments.department_name
+HAVING COUNT(*) > 30;
 
 
 
