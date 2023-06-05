@@ -27,6 +27,18 @@ FROM employees emp
 RIGHT OUTER JOIN departments dep 
 ON emp.department_id = dep.department_id;
 
+SELECT * FROM countries;
+SELECT * FROM locations;
+
+SELECT 
+coun.country_name,
+loc.city,
+loc.street_address
+FROM locations loc 
+RIGHT OUTER JOIN countries coun
+ON loc.country_id = coun.country_id;
+
+
 
 
 
