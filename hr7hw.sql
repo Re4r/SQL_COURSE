@@ -49,5 +49,13 @@ FROM departments JOIN employees USING (department_id)
 GROUP BY departments.department_name
 HAVING COUNT(*) > 30;
 
+SELECT 
+dep.department_name,
+NVL(emp.first_name, 'no emloyee') no_emp
+FROM departments dep 
+LEFT OUTER JOIN employees emp 
+ON dep.department_id = emp.department_id
+WHERE emp.first_name IS NULL;
+
 
 
