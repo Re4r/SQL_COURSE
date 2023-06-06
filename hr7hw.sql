@@ -71,7 +71,14 @@ r.region_name
 FROM countries c
 NATURAL JOIN regions r;
 
-
+SELECT
+e.first_name,
+e.last_name,
+e.salary
+FROM employees e 
+JOIN jobs j
+ON j.job_id = e.job_id
+WHERE e.salary < j.min_salary + 1000;
 
 
 
