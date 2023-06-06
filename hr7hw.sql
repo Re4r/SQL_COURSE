@@ -57,8 +57,7 @@ LEFT OUTER JOIN employees emp
 ON dep.department_id = emp.department_id
 WHERE emp.first_name IS NULL;
 
-SELECT 
-*
+SELECT *
 FROM employees emp1
 JOIN employees emp2
 ON emp1.employee_id = emp2.manager_id
@@ -80,13 +79,13 @@ JOIN jobs j
 ON j.job_id = e.job_id
 WHERE e.salary < j.min_salary + 1000;
 
-SELECT 
+SELECT DISTINCT  
 NVL(e.first_name, 'no employee'),
 NVL(e.last_name, 'no employee'),
 c.country_name
 FROM employees e
-JOIN departments d ON e.department_id = d.department_id
-JOIN locations l ON d.location_id = l.location_id
+FULL OUTER JOIN departments d ON e.department_id = d.department_id
+FULL OUTER JOIN locations l ON d.location_id = l.location_id
 FULL OUTER JOIN countries c ON l.country_id = c.country_id;
 
 SELECT 
