@@ -57,5 +57,27 @@ LEFT OUTER JOIN employees emp
 ON dep.department_id = emp.department_id
 WHERE emp.first_name IS NULL;
 
+SELECT 
+*
+FROM employees emp1
+JOIN employees emp2
+ON emp1.employee_id = emp2.manager_id
+WHERE TO_CHAR(emp1.hire_date, 'YYYY') = '2005' 
+AND TO_NUMBER(TO_CHAR(emp2.hire_date, 'YYYY')) < 2005;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
