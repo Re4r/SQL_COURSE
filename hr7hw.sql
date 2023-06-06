@@ -96,6 +96,26 @@ c.country_name
 FROM employees e 
 CROSS JOIN countries c;
 
+SELECT 
+r.region_name,
+COUNT(*)
+FROM 
+employees e, 
+departments d, 
+locations l, 
+countries c, 
+regions r
+WHERE 
+e. department_id = d.department_id 
+AND 
+d.location_id = l.location_id
+AND
+l.country_id = c.country_id
+AND 
+c.region_id = r.region_id
+GROUP BY r.region_name;
+
+
 
 
 
