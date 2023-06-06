@@ -89,6 +89,13 @@ JOIN departments d ON e.department_id = d.department_id
 JOIN locations l ON d.location_id = l.location_id
 FULL OUTER JOIN countries c ON l.country_id = c.country_id;
 
+SELECT 
+e.first_name,
+e.last_name,
+c.country_name
+FROM employees e 
+CROSS JOIN countries c;
+
 
 
 
