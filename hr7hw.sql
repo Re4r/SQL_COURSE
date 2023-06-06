@@ -115,6 +115,16 @@ AND
 c.region_id = r.region_id
 GROUP BY r.region_name;
 
+SELECT 
+e.first_name,
+d.department_name
+FROM 
+employees e,
+departments d
+WHERE e.department_id (+) = d.department_id 
+AND e.first_name IS NULL;
+
+
 
 
 
