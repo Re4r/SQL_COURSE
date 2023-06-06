@@ -65,6 +65,14 @@ ON emp1.employee_id = emp2.manager_id
 WHERE TO_CHAR(emp1.hire_date, 'YYYY') = '2005' 
 AND TO_NUMBER(TO_CHAR(emp2.hire_date, 'YYYY')) < 2005;
 
+SELECT 
+c.country_name,
+r.region_name
+FROM countries c
+NATURAL JOIN regions r;
+
+
+
 
 
 
