@@ -60,6 +60,33 @@ FROM jobs j JOIN employees e ON j.job_id = e.job_id
 GROUP BY j.job_title
 HAVING AVG(e.salary) = (SELECT MAX(AVG(e1.salary)) FROM employees e1 GROUP BY e1.job_id);
 
+SELECT
+e.first_name,
+e.last_name,
+e.salary
+FROM employees e
+WHERE e.job_id IN (SELECT j.job_id FROM jobs j WHERE j.min_salary > 8000);
+
+SELECT 
+e.first_name,
+e.last_name,
+e.salary
+FROM employees e
+WHERE e.salary > ANY(SELECT salary FROM employees WHERE department_id = 100);
+
+SELECT DISTINCT
+d.department_name
+FROM departments d
+JOIN employees e ON e.department_id = d.department_id; 
+
+SELECT 
+d.department_name
+FROM departments d
+WHERE d.department_id IN (SELECT e.department_id FROM employees e);
+
+SELECT 
+d.department_name
+FROM departments d;
 
 
 
