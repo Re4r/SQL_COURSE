@@ -88,6 +88,33 @@ SELECT
 d.department_name
 FROM departments d;
 
+SELECT 
+e1.department_id,
+e1.first_name, 
+e1.salary 
+FROM employees e1
+WHERE e1.salary > 
+(SELECT AVG(e2.salary) 
+FROM employees e2 
+WHERE e1.department_id = e2.department_id); 
+
+SELECT
+e.first_name,
+e.last_name
+FROM employees e
+WHERE e.department_id IN 
+(SELECT d.department_id FROM departments d WHERE d.location_id IN 
+(SELECT l.location_id FROM locations l WHERE l.country_id IN 
+(SELECT c.country_id FROM countries c WHERE c.country_name = 'Germany')));
+
+SELECT 
+e.first_name,
+e.last_name,
+e.salary
+FROM employees e
+WHERE e.job_id IN (SELECT j.job_id FROM jobs j WHERE j.job_title like '%Manager')
+AND e.salary > (SELECT AVG(e1.salary) FROM employees e1)
+ORDER BY e.salary;
 
 
 
