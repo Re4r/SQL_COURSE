@@ -54,6 +54,11 @@ WHERE e1.salary >= (SELECT e2.salary FROM employees e2 WHERE e2.employee_id = 18
 
 SELECT e2.salary FROM employees e2 WHERE e2.employee_id = 180;
 
+SELECT 
+j.job_title
+FROM jobs j JOIN employees e ON j.job_id = e.job_id
+GROUP BY j.job_title
+HAVING AVG(e.salary) = (SELECT MAX(AVG(e1.salary)) FROM employees e1 GROUP BY e1.job_id);
 
 
 
