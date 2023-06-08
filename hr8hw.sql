@@ -43,13 +43,28 @@ FROM employees e
 WHERE e.job_id IN 
 (SELECT j.job_id FROM jobs j WHERE j.job_title NOT LIKE '%Manager');
 
-SELECT * FROM jobs;
-SELECT * FROM employees;
+SELECT * 
+    FROM employees e
+    WHERE e.employee_id NOT IN
+        (SELECT DISTINCT 
+            e1.manager_id 
+            FROM employees e1 
+            WHERE e1.manager_id IS NOT NULL);
 
-SELECT
-*
-FROM jobs j JOIN employees e ON j.job_id = e.job_id
-WHERE j.job_title LIKE '%Manager'
+SELECT * 
+FROM employees e
+WHERE (SELECT 
+        COUNT(*) 
+        FROM employees e1 
+        WHERE e1.manager_id = e.employee_id) > 6; 
+        
+SELECT * 
+    FROM employees e
+    WHERE e.department_id = 
+        (SELECT d.department_id 
+            FROM departments d
+            WHERE d.department_name = 'IT');
+        
 
 
 
