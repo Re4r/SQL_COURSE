@@ -34,6 +34,11 @@ RIGHT OUTER JOIN departments d ON e.department_id = d.department_id
 WHERE e.employee_id IS NULL;
 
 SELECT * 
+FROM departments d
+WHERE d.department_id NOT IN 
+(SELECT e.department_id FROM employees e WHERE e.department_id IS NOT NULL);
+
+SELECT * 
 FROM employees e
 WHERE e.job_id IN 
 (SELECT j.job_id FROM jobs j WHERE j.job_title NOT LIKE '%Manager');
