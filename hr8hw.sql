@@ -64,6 +64,14 @@ SELECT *
         (SELECT d.department_id 
             FROM departments d
             WHERE d.department_name = 'IT');
+            
+SELECT * 
+    FROM employees e
+    WHERE e.manager_id IN 
+        (SELECT e1.employee_id 
+            FROM employees e1
+            WHERE TO_CHAR(e1.hire_date, 'YYYY') = '2005') 
+    AND e.hire_date < TO_DATE('01012005', 'DDMMYYYY');
         
 
 
