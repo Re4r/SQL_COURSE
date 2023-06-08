@@ -22,6 +22,11 @@ JOIN departments d1 ON e1.department_id = d1.department_id
 JOIN locations l1 ON d1.location_id = l1.location_id
 GROUP BY l1.city);
 
+SELECT * 
+FROM employees e
+WHERE e.manager_id 
+IN (SELECT e1.employee_id FROM employees e1 WHERE e1.salary > 15000);
+
 SELECT 
 d.department_name
 FROM employees e 
