@@ -83,6 +83,7 @@ SELECT *
         (SELECT LENGTH(j.job_title) 
             FROM jobs j
             WHERE j.job_id = e.job_id) > 15;
+            
         
 
 
