@@ -72,6 +72,17 @@ SELECT *
             FROM employees e1
             WHERE TO_CHAR(e1.hire_date, 'YYYY') = '2005') 
     AND e.hire_date < TO_DATE('01012005', 'DDMMYYYY');
+    
+SELECT * 
+    FROM employees e 
+    WHERE e.manager_id IN 
+        (SELECT e1.employee_id 
+            FROM employees e1
+            WHERE TO_CHAR(e1.hire_date, 'MM') = '01')
+    AND
+        (SELECT LENGTH(j.job_title) 
+            FROM jobs j
+            WHERE j.job_id = e.job_id) > 15;
         
 
 
