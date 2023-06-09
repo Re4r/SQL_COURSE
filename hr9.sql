@@ -24,6 +24,31 @@ MINUS
 SELECT first_name, salary FROM employees WHERE first_name LIKE '%l%';
 
 
+SELECT 
+    manager_id, 
+    TO_CHAR(NULL) job_id,
+    TO_NUMBER(NULL) dep_id,
+    SUM(salary) 
+    FROM employees
+    GROUP BY manager_id
+UNION
+SELECT 
+    TO_NUMBER(NULL), 
+    e1.job_id, 
+    TO_NUMBER(NULL),
+    SUM(e1.salary) 
+    FROM employees e1
+    GROUP BY e1.job_id
+UNION
+SELECT 
+    TO_NUMBER(NULL),
+    TO_CHAR(NULL),
+    e2.department_id,
+    SUM(e2.salary)
+    FROM employees e2
+    GROUP BY e2.department_id;
+    
+    
 
 
 
