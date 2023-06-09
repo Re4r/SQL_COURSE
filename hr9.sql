@@ -60,7 +60,16 @@ SELECT
     FROM employees 
     WHERE manager_id NOT IN (145, 201); 
     
-    
+SELECT 
+    first_name,
+    last_name,
+    salary
+    FROM employees
+    WHERE 
+        LOWER(first_name) LIKE '%a' 
+        AND LOWER(last_name) LIKE '%s%';
+        
+        
 
     
 
