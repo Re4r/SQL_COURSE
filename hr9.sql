@@ -116,6 +116,25 @@ SELECT
 WHERE postal_code LIKE '%9%';
 
 
+SELECT 
+    country_id, 
+    country_name, 
+    region_id 
+    FROM countries 
+    WHERE LENGTH(country_name) > 8
+INTERSECT
+SELECT 
+    c1.country_id, 
+    c1.country_name, 
+    c1.region_id 
+    FROM countries c1 
+    WHERE 
+        c1.region_id != 
+            (SELECT r.region_id 
+            FROM regions r 
+            WHERE r.region_name = 'Europe');
+
+
 
 
 
