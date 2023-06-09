@@ -53,7 +53,7 @@ SELECT
     manager_id
     FROM employees 
     WHERE manager_id = 100
-UNION    
+INTERSECT    
 SELECT 
     department_id,
     manager_id
@@ -93,20 +93,10 @@ SELECT
     postal_code,
     city
     FROM locations
-WHERE country_id = 
+WHERE country_id IN
     (SELECT c.country_id 
         FROM countries c 
-        WHERE c.country_name = 'Germany')
-UNION
-SELECT 
-    location_id,
-    postal_code,
-    city
-    FROM locations
-WHERE country_id = 
-    (SELECT c.country_id 
-        FROM countries c 
-        WHERE c.country_name = 'Italy')
+        WHERE c.country_name IN ('Germany', 'Italy'))
 UNION
 SELECT 
     location_id,
