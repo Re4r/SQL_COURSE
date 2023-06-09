@@ -67,7 +67,59 @@ SELECT
     FROM employees
     WHERE 
         LOWER(first_name) LIKE '%a' 
-        AND LOWER(last_name) LIKE '%s%';
+        AND LOWER(last_name) LIKE '%s%'
+    ORDER BY salary DESC;
+  
+SELECT 
+    first_name,
+    last_name,
+    salary sal
+    FROM employees e1
+    WHERE 
+        LOWER(e1.first_name) LIKE '%a'
+INTERSECT
+SELECT 
+    first_name,
+    last_name,
+    salary
+    FROM employees e2
+    WHERE 
+        LOWER(e2.last_name) LIKE '%s%'
+ORDER BY sal DESC;  
+
+
+SELECT 
+    location_id,
+    postal_code,
+    city
+    FROM locations
+WHERE country_id = 
+    (SELECT c.country_id 
+        FROM countries c 
+        WHERE c.country_name = 'Germany')
+UNION
+SELECT 
+    location_id,
+    postal_code,
+    city
+    FROM locations
+WHERE country_id = 
+    (SELECT c.country_id 
+        FROM countries c 
+        WHERE c.country_name = 'Italy')
+UNION
+SELECT 
+    location_id,
+    postal_code,
+    city
+    FROM locations
+WHERE postal_code LIKE '%9%';
+
+
+
+
+
+
         
         
 
