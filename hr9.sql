@@ -48,6 +48,20 @@ SELECT
     FROM employees e2
     GROUP BY e2.department_id;
     
+SELECT 
+    department_id,
+    manager_id
+    FROM employees 
+    WHERE manager_id = 100
+UNION    
+SELECT 
+    department_id,
+    manager_id
+    FROM employees 
+    WHERE manager_id NOT IN (145, 201); 
+    
+    
+
     
 
 
